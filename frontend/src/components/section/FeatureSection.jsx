@@ -1,121 +1,65 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { MdPersonSearch, MdOutlinePriceChange } from 'react-icons/md';
-import { FcInspection } from 'react-icons/fc';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { HiOutlineClipboardCheck } from 'react-icons/hi';
 import iphonesFourImage from '../../assets/iphones_four.jpg';
+import Reveal from '../common/Reveal';
+import SectionHeading from '../common/SectionHeading';
+import { FEATURES } from '../../data/landing';
+
+const ICONS = {
+  quality: MdPersonSearch,
+  price: MdOutlinePriceChange,
+  transparency: HiOutlineClipboardCheck,
+};
 
 function FeaturesSection() {
-  const controlImage = useAnimation();
-  const controlText = useAnimation();
-  const [refImage, inViewImage] = useInView({
-    triggerOnce: false,
-    threshold: 0.1,
-  });
-  const [refText, inViewText] = useInView({
-    triggerOnce: false,
-    threshold: 0.1,
-  });
-  const cardAnimation = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (custom) => ({
-      opacity: 1,
-      y: 0,
-      transition: { duration: 1, delay: custom * 0.5 },
-    }),
-  };
-
-  useEffect(() => {
-    if (inViewImage) {
-      controlImage.start({ opacity: 1, transition: { duration: 1 } });
-    } else {
-      controlImage.start({ opacity: 0, transition: { duration: 1 } });
-    }
-  }, [controlImage, inViewImage]);
-
-  useEffect(() => {
-    if (inViewText) {
-      controlText.start({ opacity: 1, x: 0, transition: { duration: 1 } });
-    } else {
-      controlText.start({ opacity: 0, x: -50, transition: { duration: 1 } });
-    }
-  }, [controlText, inViewText]);
-
   return (
-    <section className="flex items-center justify-center bg-white py-20 text-gray-900">
-      <div className="relative text-center">
-        <div className="my-10 flex justify-center">
-          <motion.img
-            ref={refImage}
-            src={iphonesFourImage}
-            alt="iPhones"
-            className="mb-5 w-full max-w-2xl md:max-w-xl"
-            initial={{ opacity: 0 }}
-            animate={controlImage}
-          />
-        </div>
-        <motion.div
-          ref={refText}
-          className="mx-auto my-20 px-20 text-center"
-          initial={{ opacity: 0, x: -50 }}
-          animate={controlText}
-        >
-          <h2 className="mb-6 text-3xl font-bold sm:text-4xl">Our Features</h2>
-          <p className="text-md">SAPHY가 가진 특징 요소들을 소개드립니다.</p>
-        </motion.div>
-        <div className="mx-auto mb-10 grid max-w-[90%] grid-cols-1 gap-11 md:grid-cols-2 lg:grid-cols-3">
-          <motion.div
-            className="rounded-3xl border p-6 shadow-lg"
-            variants={cardAnimation}
-            initial="hidden"
-            whileInView="visible"
-            custom={0}
-            threshold={0.7}
-          >
-            <div className="my-5 flex items-center justify-center text-center">
-              <MdPersonSearch className="text-8xl" />
+    <section
+      id="features"
+      className="relative flex min-h-screen items-center bg-white py-32"
+    >
+      <div className="mx-auto w-full max-w-6xl px-6">
+        <SectionHeading
+          align="center"
+          eyebrow="Our Features"
+          title="SAPHY가 가진 특징"
+          description="품질, 가격, 투명성. 중고 전자기기 거래에서 가장 중요한 세 가지를 지킵니다."
+        />
+
+        <Reveal delay={0.1} className="mt-16">
+          <div className="relative overflow-hidden rounded-[2rem] p-1.5 shadow-[0_40px_80px_-40px_rgba(31,43,92,0.45)]">
+            <div className="absolute inset-0 bg-gradient-to-br from-silver-200 via-white to-saphy-300" />
+            <div className="relative h-64 overflow-hidden rounded-[1.7rem] sm:h-96">
+              <img
+                src={iphonesFourImage}
+                alt="여러 대의 스마트폰"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-saphy-900/50 to-transparent" />
             </div>
-            <h3 className="my-4 text-2xl font-semibold">품질</h3>
-            <p className="text-md">
-              상품의 외관, 성능 및 완전 작동 기기만을 판매하며, 철저한 검수를
-              통해 고품질 제품을 제공합니다.
-            </p>
-          </motion.div>
-          <motion.div
-            className="rounded-3xl border p-6 shadow-lg"
-            variants={cardAnimation}
-            initial="hidden"
-            whileInView="visible"
-            custom={1}
-            threshold={0.8}
-          >
-            <div className="my-5 flex items-center justify-center text-center">
-              <MdOutlinePriceChange className="text-8xl" />
-            </div>
-            <h3 className="my-4 text-2xl font-semibold">가격</h3>
-            <p className="text-md">
-              배송비 및 검수비를 포함하여, 중고 전자기기의 저렴한 가격을 통해
-              정가보다 더더욱 할인된 가격으로 판매합니다.
-            </p>
-          </motion.div>
-          <motion.div
-            className="rounded-3xl border p-6 shadow-lg"
-            variants={cardAnimation}
-            initial="hidden"
-            whileInView="visible"
-            custom={2}
-            threshold={0.9}
-          >
-            <div className="my-5 flex items-center justify-center text-center">
-              <FcInspection className="text-8xl" />
-            </div>
-            <h3 className="my-4 text-2xl font-semibold">투명성</h3>
-            <p className="text-md">
-              사피에서 제공되는 엄격한 검수 기준을 적용해 각 상품에 맞게
-              항목별로 평가된, 그리고 사용자분들의 의견을 수용하여 지속적인
-              발전을 추구합니다.
-            </p>
-          </motion.div>
+          </div>
+        </Reveal>
+
+        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {FEATURES.map((feature, index) => {
+            const Icon = ICONS[feature.id];
+            return (
+              <Reveal key={feature.id} delay={index * 0.15}>
+                <article className="group relative h-full overflow-hidden rounded-3xl border border-silver-200 bg-gradient-to-b from-white to-silver-50 p-8 shadow-sm transition duration-500 hover:-translate-y-2 hover:border-saphy-300 hover:shadow-[0_30px_60px_-30px_rgba(91,134,238,0.5)]">
+                  <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-saphy-300 to-silver-400 transition duration-500 group-hover:scale-x-100" />
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-saphy-200 to-saphy-400 text-white shadow-lg shadow-saphy-400/40">
+                    <Icon size={34} />
+                  </div>
+                  <h3 className="mt-8 text-2xl font-bold text-slate-900">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-4 leading-[1.85] text-slate-600">
+                    {feature.description}
+                  </p>
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
