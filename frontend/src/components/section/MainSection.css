@@ -10,9 +10,34 @@
   }
 }
 
+/* 기존 애니메이션 그라데이션을 유지하되, 브랜드 블루와 메탈릭 네이비 톤으로 정리 */
 .animated-background {
-  background: linear-gradient(-45deg, #1d2c41, #b7c9d9, #4fa3f0, #22131a);
+  background: linear-gradient(
+    -45deg,
+    #0b1220,
+    #1f2b5c,
+    #3753a8,
+    #9abcff,
+    #1d2c41
+  );
   background-size: 400% 400%;
   animation: backgroundChange 20s ease-in-out infinite;
   color: #fff;
+}
+
+/* 메탈릭 그리드 패턴 */
+.metal-grid {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-background {
+    animation: none;
+  }
 }
