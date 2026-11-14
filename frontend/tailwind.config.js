@@ -5,12 +5,39 @@ module.exports = {
     extend: {
       colors: {
         'my-color': '#9ABCFF',
+        // 브랜드 페리윙클 블루 계열 (300 = 기존 my-color)
+        saphy: {
+          50: '#f2f6ff',
+          100: '#e4ecff',
+          200: '#c9d9ff',
+          300: '#9ABCFF',
+          400: '#7aa3fb',
+          500: '#5b86ee',
+          600: '#4569d4',
+          700: '#3753a8',
+          800: '#2b4180',
+          900: '#1f2b5c',
+        },
+        // 메탈릭 실버 계열
+        silver: {
+          50: '#f8fafc',
+          100: '#f1f4f8',
+          200: '#e3e8ef',
+          300: '#cbd3de',
+          400: '#a3aebd',
+          500: '#7b8797',
+        },
       },
       fontFamily: {
+        sans: ['Pretendard Variable', 'Pretendard', 'system-ui', 'sans-serif'],
         gmarketmedium: ['GmarketSansMedium', 'sans-serif'],
         gmarketbold: ['GmarketSansBold', 'sans-serif'],
       },
       keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-14px)' },
+        },
         fadein: {
           '0%': {
             opacity: 0,
@@ -83,6 +110,7 @@ module.exports = {
         },
       },
       animation: {
+        float: 'float 6s ease-in-out infinite',
         fadein: 'fadein 2s ease-in-out',
         fadeinDelay1: 'fadein 1.5s ease-in-out 0.5s forwards',
         fadeinDelay2: 'fadein 1.5s ease-in-out 1s forwards',

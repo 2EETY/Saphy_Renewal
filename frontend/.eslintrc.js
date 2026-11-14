@@ -31,6 +31,8 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    // React 18.3부터 함수 컴포넌트의 defaultProps가 deprecated → 기본 매개변수 사용
+    'react/require-default-props': ['error', { functions: 'defaultArguments' }],
   },
   settings: {
     react: {

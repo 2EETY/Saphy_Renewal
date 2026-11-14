@@ -1,5 +1,15 @@
 # SAPHY FrontEnd
 
+## 🔄 Renewal
+
+> [2024-Saphy/FE](https://github.com/2024-Saphy/FE)의 랜딩페이지를 사이드 프로젝트로 리뉴얼한 저장소입니다.
+> 원 저장소의 커밋 기록과 컨벤션을 그대로 이어갑니다.
+
+- 배포: https://saphy.vercel.app (Vercel, Root Directory: `frontend`, Node.js 24.x)
+- 리뉴얼 내용: 전체 화면 섹션, CTA 버튼, 브랜드 블루(`#9ABCFF`) + 메탈릭 실버 톤, Pretendard 폰트, 반응형 모바일 메뉴
+- 앱은 창업 아이디어 단계에서 마무리되어 스토어에 출시되지 않았으므로, 다운로드 버튼은 '출시 예정'으로 표시합니다.
+- 작업 흐름: `feat/SAPHY-{번호}-{기능}` → `develop` PR → `main` 배포
+
 ## 📠 Convention
 
 ### 🤝 Branch Naming Convention
