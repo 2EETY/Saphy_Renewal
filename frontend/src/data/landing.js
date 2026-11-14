@@ -1,10 +1,14 @@
 // 랜딩페이지에 표시되는 문구와 링크를 한곳에서 관리합니다.
 
+// 사이드 프로젝트 리뉴얼: 연락처와 저장소는 리뉴얼 담당자 기준, 원 팀 저장소는 출처로 표기
 export const LINKS = {
-  github: 'https://github.com/2024-Saphy',
-  playStore: 'https://play.google.com/store/',
-  appStore: 'https://www.apple.com/kr/app-store/',
+  github: 'https://github.com/2EETY/Saphy_Renewal',
+  originalTeam: 'https://github.com/2024-Saphy',
+  email: 'lty9251@gmail.com',
 };
+
+// 앱은 창업 아이디어 단계에서 마무리되어 스토어에 출시되지 않았으므로 '출시 예정'으로 표시
+export const APP_RELEASED = false;
 
 export const NAV_ITEMS = [
   { id: 'about', label: '소개' },

@@ -32,17 +32,38 @@ function Footer() {
 
         <div className="md:text-right">
           <p className="text-sm font-semibold text-white">Saphy</p>
-          <p className="mt-5 text-sm">상상기업 프로젝트</p>
-          <a
-            href={LINKS.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="github"
-            className="mt-4 inline-flex items-center gap-2 text-sm hover:text-saphy-300"
-          >
-            <FaGithub size={18} />
-            github.com/2024-Saphy
-          </a>
+          <p className="mt-5 text-sm">
+            상상기업 프로젝트 · 리뉴얼 사이드 프로젝트
+          </p>
+          <p className="mt-3 text-sm">
+            문의:{' '}
+            <a
+              href={`mailto:${LINKS.email}`}
+              className="underline-offset-4 hover:text-saphy-300 hover:underline"
+            >
+              {LINKS.email}
+            </a>
+          </p>
+          <div className="mt-4 flex flex-col gap-2 text-sm md:items-end">
+            <a
+              href={LINKS.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="github"
+              className="inline-flex items-center gap-2 hover:text-saphy-300"
+            >
+              <FaGithub size={18} />
+              github.com/2EETY/Saphy_Renewal
+            </a>
+            <a
+              href={LINKS.originalTeam}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-silver-500 hover:text-saphy-300"
+            >
+              원 프로젝트: github.com/2024-Saphy
+            </a>
+          </div>
         </div>
       </div>
       <p className="border-t border-white/5 py-6 text-center text-xs text-silver-500">
